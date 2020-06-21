@@ -52,7 +52,7 @@ public class PhotoSort {
 
     LOG.info("Analyzing source folder...");
     List<Path> allImages = Files.walk(sourcePath)
-        .filter(p -> p.toString().matches(".*\\.(jpg|jpeg|png|gif)$"))
+        .filter(p -> p.toString().matches("(?i).*\\.(jpg|jpeg|png|gif)$"))
         .collect(Collectors.toList());
     LOG.log(Level.INFO, "Found {0} images.", allImages.size());
 
