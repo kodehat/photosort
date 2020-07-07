@@ -1,4 +1,4 @@
-package de.codehat.photosort;
+package de.codehat.photosort.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

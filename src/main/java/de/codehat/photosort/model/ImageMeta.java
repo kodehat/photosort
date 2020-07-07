@@ -1,4 +1,4 @@
-package de.codehat.photosort;
+package de.codehat.photosort.model;
 
 import java.io.IOException;
 import java.nio.file.Path;

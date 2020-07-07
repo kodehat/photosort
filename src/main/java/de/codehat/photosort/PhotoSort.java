@@ -1,7 +1,11 @@
 package de.codehat.photosort;
 
+import com.beust.jcommander.JCommander;
+import de.codehat.photosort.args.Args;
+import de.codehat.photosort.model.Image;
+import de.codehat.photosort.model.ImageMeta;
+
 import java.io.IOException;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,8 +13,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.TimeZone;
-import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -24,6 +26,12 @@ public class PhotoSort {
   private static final int ARGUMENT_TARGET_PATH = 1;
 
   public static void main(String[] args) throws IOException {
+    Args argsObj = new Args();
+    JCommander jCommander = JCommander.newBuilder()
+            .addObject(argsObj)
+            .build();
+    jCommander.parse(args);
+
     if (args.length != ARGUMENTS_SIZE) {
       throw new IllegalArgumentException("Exactly two arguments are required!");
     }
